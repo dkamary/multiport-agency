@@ -1,0 +1,9 @@
+/******* Customized Bootstrap ********/
+
+@use 'variables' as *;
+
+@use "bootstrap/scss/bootstrap" as *;
+
+@use 'custom' as *;
+
+@use 'carousel' as *;

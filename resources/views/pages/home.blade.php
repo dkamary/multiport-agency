@@ -1,7 +1,7 @@
 {{-- Home page --}}
 
 <x-logistica>
-    <x-slot:meta_title>Multiport Agency</x-slot:meta_title>
+    <x-slot:meta_title>Multiport Agency FZCO</x-slot:meta_title>
         
     <!-- About Start -->
     <div class="container-fluid overflow-hidden py-5 px-lg-0">
@@ -13,7 +13,7 @@
                             alt="">
                     </div>
                 </div>
-                <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-6 py-4 about-text wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
                     <h2 class="mb-5 text-primary">Quick Transport and Logistics Solutions</h2>
                     <p class="mb-5 text-wrap-balance">
@@ -32,7 +32,7 @@
     <div class="container-xxl py-5">
         <div class="container py-5">
             <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-6 py-4 wow fadeInUp" data-wow-delay="0.1s">
                     <h6 class="text-secondary text-uppercase mb-3">Why choose us?</h6>
                     <h2 class="mb-5 text-primary">Efficiency and Reliability</h2>
                     <p class="mb-5 text-wrap-balance">Multiport Agency Services FZCO is a UAE Free Zone company specializing in port agency, ship husbandry, logistics coordination, and vessel operations management across multiple global ports.</p>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeInDown" data-wow-delay="0.3s">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('img/service-6.jpg') }}" style="object-fit: cover;"
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('img/why-choose-us.webp') }}" style="object-fit: cover;"
                             alt="">
                     </div>
                 </div>
@@ -56,7 +56,7 @@
     <!-- Fact End -->
 
     <!-- Service Start -->
-    <div class="container-xxl py-5">
+    <div class="services-section container-xxl py-5">
         <div class="container py-5">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="text-secondary text-uppercase">Our Services</h6>
@@ -80,7 +80,7 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="service-item p-4">
                         <div class="overflow-hidden mb-4">
-                            <img class="img-fluid" src="{{ asset('img/service-4.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('img/ship-husbandry-services.webp') }}" alt="">
                         </div>
                         <h4 class="mb-3 text-secondary">SHIP HUSBANDRY SERVICES</h4>
                         <ul>
@@ -94,7 +94,7 @@
                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.7s">
                     <div class="service-item p-4">
                         <div class="overflow-hidden mb-4">
-                            <img class="img-fluid" src="{{ asset('img/service-3.jpg') }}" alt="">
+                            <img class="img-fluid" src="{{ asset('img/cargo-and-operation-management.webp') }}" alt="">
                         </div>
                         <h4 class="mb-3 text-secondary">CARGO & OPERATIONS MANAGEMENT</h4>
                         <ul>

@@ -3,7 +3,7 @@
     'background' => 'rgba(6, 3, 21, .5)',
     'subtitle' => 'Transport & Logistics Solution',
     'title' => '#1 Place For Your <span class="text-primary">Logistics</span> Solution',
-    'text' => 'Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.',
+    'text' => '',
     'primary_button_text' => 'Read More',
     'primary_button_link' => '',
     'secondary_button_text' => 'Free Quote',
@@ -17,9 +17,9 @@
         <div class="container">
             <div class="row justify-content-start">
                 <div class="col-10 col-lg-8">
-                    <h5 class="text-white text-uppercase mb-3 animated slideInDown">{!! $subtitle !!}</h5>
-                    <h1 class="display-3 text-white animated slideInDown mb-4">{!! $title !!}</h1>
-                    <p class="fs-5 fw-medium text-white mb-4 pb-2">{!! !$slot->isEmpty() ? $slot : '' !!}</p>
+                    <h5 class="text-uppercase mb-3 animated slideInDown">{!! $subtitle !!}</h5>
+                    <h1 class="display-3 animated slideInDown mb-4">{!! $title !!}</h1>
+                    <div class="fs-5 fw-medium animated slideInUp mb-0 pb-0">{!! !$slot->isEmpty() ? $slot : $text !!}</d>
                     {{-- @if(!empty($primary_button_text))
                         <a href="{{ $primary_button_link }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{!! $primary_button_text !!}</a>
                     @endif

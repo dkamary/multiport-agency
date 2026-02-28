@@ -3,6 +3,12 @@ import laravel from 'laravel-vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+    css: {
+        devSourcemap: true,
+    },
+    build: {
+        sourcemap: true,
+    },
     plugins: [
         laravel({
             input: [

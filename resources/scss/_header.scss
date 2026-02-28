@@ -1,0 +1,13 @@
+// Header styles
+
+.navbar {
+    .navbar-brand {
+        h2 {
+            @media screen and (max-width: 567px) {
+                span {
+                    font-size: 5.81vw;
+                }
+            }
+        }
+    }
+}

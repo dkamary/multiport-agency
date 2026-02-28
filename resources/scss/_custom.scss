@@ -1,13 +1,6 @@
 /********** Template CSS **********/
 @use 'variables' as *;
 
-:root {
-    --primary: $primary;
-    --secondary: $secondary;
-    --light: $light;
-    --dark: $dark;
-}
-
 .fw-medium {
     font-weight: 600 !important;
 }

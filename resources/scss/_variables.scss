@@ -1,4 +1,4 @@
-// Varaibles
+// Variables
 
 // $primary: #FF3E41;
 $primary: #02284d;
@@ -8,21 +8,26 @@ $light: #F8F2F0;
 $dark: #060315;
 
 $font-family-base: 'Inter', sans-serif;
-
 $headings-font-family: 'Roboto', sans-serif;
-
 $body-color: #555555;
-
 $headings-color: $dark;
-
 $headings-font-weight: 700;
-
 $display-font-weight: 700;
-
 $enable-responsive-font-sizes: true;
-
 $border-radius: 0px;
-
 $link-decoration: none;
-
 $enable-negative-margins: true;
+
+:root {
+    --primary: #{$primary};
+    --secondary: #{$secondary};
+    --light: #{$light};
+    --dark: #{$dark};
+    --font-family-base: #{$font-family-base};
+    --headings-font-family: #{$headings-font-family};
+    --body-color: #{$body-color};
+    --headings-color: #{$headings-color};
+    --headings-font-weight: #{$headings-font-weight};
+    --display-font-weight: #{$display-font-weight};
+    --border-radius: #{$border-radius};
+}

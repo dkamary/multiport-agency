@@ -73,7 +73,7 @@
 <body {{ $attributes->merge(['class' => 'multiport-agency-v2']) }}>
 
     @if ($with_loader)
-        <x-widget.loader />
+        <x-widget.loader width="10rem" height="10rem"><img src="{{ asset('img/multiport-logo.webp') }}" style="width: auto; height: 100%;" /></x-widget.loader>
     @endif
 
     <x-widget.navbar />

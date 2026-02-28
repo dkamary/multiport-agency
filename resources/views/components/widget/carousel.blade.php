@@ -2,6 +2,7 @@
 
 @props([
     'carousel' => [],
+    'background' => 'rgba(6, 3, 21, .5)',
 ])
 
 <div class="container-fluid p-0 pb-5">
@@ -9,17 +10,23 @@
         @empty($carousel)
             <x-widget.carousel-item 
                 :image="asset('img/multiport-agency-fzco-banner.webp')"
-                background="rgba(6, 3, 21, .5)"
+                :background="$background"
                 primary_button_text="Read More" 
                 primary_button_link="#" 
                 secondary_button_text="Free Quote" 
                 secondary_button_link="#"
             >
-                <x-slot:title>Efficient. <span class="text-primary">Reliable</span>. Maritime Excellence.</x-slot:title>
-                <x-slot:subtitle>Transport & Logistics Solution</x-slot:subtitle>
-                {{-- <x-slot:text>
-                    Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.
-                </x-slot:text> --}}
+                <x-slot:title>Efficient. Reliable. Maritime Excellence.</x-slot:title>
+                <x-slot:subtitle>Global Maritime & Port Agency Services</x-slot:subtitle>
+                <x-slot:text>
+                    <h3>Trusted Maritime Agency Solutions Worldwide</h3>
+                    <p>
+                        Supporting ship owners, charterers, 
+                        and operators with seamless port agency services, 
+                        husbandry support, and logistics coordination 
+                        wherever your vessel calls.
+                    </p>
+                </x-slot:text>
             </x-widget.carousel-item>
 
             {{-- <x-widget.carousel-item 

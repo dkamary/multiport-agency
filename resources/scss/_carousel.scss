@@ -5,4 +5,11 @@ $textShadowColor: rgba(0, 0, 0, .2);
     h1, h2, h3, h4, h5, h6 {
         text-shadow: 0px 3px 3px $textShadowColor;
     }
+<<<<<<< HEAD
+=======
+
+    span.text-primary {
+        text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.2);
+    }
+>>>>>>> ce19ea11088b88ca7a010278209f09742beb8b79
 }

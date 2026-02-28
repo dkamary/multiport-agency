@@ -16,6 +16,7 @@
                 <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
                     <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
                     <h1 class="mb-5 text-primary">Quick Transport and Logistics Solutions</h1>
+
                     <p class="mb-5">
                         Multiport Agency Services FZCO is a UAE Free Zone company specializing in port agency, ship husbandry, logistics coordination, and vessel operations management across multiple global ports.
                         We offer end-to-end support for shipowners, charterers, operators, freight forwarders, and logistics partners who require fast, transparent, and dependable port services.
@@ -24,6 +25,21 @@
                         From pre-arrival arrangements to vessel clearance, bunkering, crew logistics, cargo coordination, and departure procedures, our team ensures every port call is handled with precision.
                         Through our international agent network, we deliver consistent service quality and compliance with global maritime standards.
                     </p>
+                    {{-- <div class="row g-4 mb-5">
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                            <i class="fa fa-globe fa-3x text-primary mb-3"></i>
+                            <h5>Global Coverage</h5>
+                            <p class="m-0">Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam
+                                justo.</p>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                            <i class="fa fa-shipping-fast fa-3x text-primary mb-3"></i>
+                            <h5>On Time Delivery</h5>
+                            <p class="m-0">Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam
+                                justo.</p>
+                        </div>
+                    </div>
+                    <a href="" class="btn btn-primary py-3 px-5">Explore More</a> --}}
                 </div>
             </div>
         </div>

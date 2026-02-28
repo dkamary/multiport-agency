@@ -44,7 +44,7 @@
                         <div class="overflow-hidden mb-4">
                             <img class="img-fluid" src="{{ asset('img/service-3.jpg') }}" alt="">
                         </div>
-                        <h4 class="mb-3 text-secondary">CARGO & OPERATIONS MANAGEMENT</h4>
+						<h4 class="mb-3 text-secondary">CARGO & OPERATIONS MANAGEMENT</h4>
                         <ul>
                             <li>Cargo coordination with terminals</li>
                             <li>Loading & discharging supervision</li>

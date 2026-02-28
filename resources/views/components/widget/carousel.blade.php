@@ -7,8 +7,8 @@
 <div class="container-fluid p-0 pb-5">
     <div class="owl-carousel header-carousel position-relative mb-5">
         @empty($carousel)
-            <x-widget.carousel-item 
-                :image="asset('img/carousel-1.jpg')"
+            <x-widget.carousel-item
+                :image="asset('img/multiport-agency-fzco-banner.webp')"
                 background="rgba(6, 3, 21, .5)"
                 primary_button_text="Read More" 
                 primary_button_link="#" 

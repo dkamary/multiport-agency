@@ -112,6 +112,7 @@
     <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
 
     <script src="{{ asset('js/main.js') }}"></script>
+    @vite(['resources/js/app.js'])
 
     @if(!empty($scripts))
         {!! $scripts !!}

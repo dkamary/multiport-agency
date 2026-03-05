@@ -3,7 +3,7 @@
 @props([
     'additional_class' => 'container-xxl py-5',
     'title' => 'Why choose us?',
-    'subtitle' => 'Efficiency and Reliability',
+    'subtitle' => 'Reliable ship agency worldwide',
     'text' => 'Multiport Agency Services FZCO is a UAE Free Zone company specializing in port agency, ship husbandry, logistics coordination, and vessel operations management across multiple global ports.',
     'phone_number' => '+971 xxx xxx xxx',
     'phone_label' => 'Call for any query!',
@@ -16,8 +16,8 @@
         <div class="row g-5">
             <div class="col-lg-6 py-4 wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="text-secondary text-uppercase mb-3">{!! $title !!}</h6>
-                <h2 class="mb-5 text-primary">{!! $subtitle !!}</h2>
-                <p class="mb-5 text-wrap-balance">{{ $text }}</p>
+                <h2 class="mb-5 text-primary text-uppercase">{!! $subtitle !!}</h2>
+                <div class="mb-5 text-wrap-balance">{{ $text }}</div>
                 <div class="d-flex align-items-center">
                     <i class="fa fa-headphones fa-2x flex-shrink-0 bg-primary p-3 text-white"></i>
                     <div class="ps-4">

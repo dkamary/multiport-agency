@@ -10,7 +10,7 @@
     <div class="container py-5">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="text-secondary text-uppercase">{!! $title !!}</h6>
-            <h2 class="mb-5 text-primary">{!! $subtitle !!}</h2>
+            <h2 class="mb-5 text-primary text-uppercase">{!! $subtitle !!}</h2>
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">

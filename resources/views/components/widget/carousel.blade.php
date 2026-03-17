@@ -9,7 +9,7 @@
     <div class="owl-carousel header-carousel position-relative mb-5">
         @empty($carousel)
             <x-widget.carousel-item
-                :image="asset('img/multiport-agency-fzco-banner.webp')"
+                :image="asset('img/maritimes-logistic-support.webp')"
                 :background="$background"
                 primary_button_text="Read More" 
                 primary_button_link="#" 

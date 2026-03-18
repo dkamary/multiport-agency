@@ -23,7 +23,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-lg-6 py-4 about-text wow fadeInUp" data-wow-delay="0.3s">
+            <div class="col-lg-6 py-5 about-text wow fadeInUp" data-wow-delay="0.3s">
                 {{ $slot }}
             </div>
         </div>

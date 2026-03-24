@@ -1,14 +1,31 @@
 // Map styling
 
+@use 'variables' as *;
+
 $tooltip-bg-color: #980909;
 $tooltip-font-size: 1px;
 $tooltip-padding: 0.5rem 0.75rem;
 
-@import 'jsvectormap/dist/jsvectormap.css'; 
+@import 'jsvectormap/dist/jsvectormap.css';
 
 #map {
     width: 100%;
     height: 50vh;
     min-height: 600px;
     max-height: 650px;
+}
+
+@mixin btnActive {
+    background-color: $secondary;
+    border-color: $secondary;
+}
+
+.map-controls {
+    .btn {
+        &.btn-primary{
+            &:is(.active, :hover, :focus) {
+                @include btnActive;
+            }
+        }    
+    }
 }

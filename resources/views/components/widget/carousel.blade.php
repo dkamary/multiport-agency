@@ -28,27 +28,6 @@
                     </p>
                 </x-slot:text>
             </x-widget.carousel-item>
-
-            {{-- <x-widget.carousel-item 
-                :image="asset('img/carousel-2.jpg')"
-                background="rgba(6, 3, 21, .5)"
-                primary_button_text="Read More" 
-                primary_button_link="#" 
-                secondary_button_text="Free Quote" 
-                secondary_button_link="#"
-            >
-                <x-slot:title>Efficient. Reliable. Maritime Excellence.</x-slot:title>
-                <x-slot:subtitle>Global Maritime & Port Agency Services</x-slot:subtitle>
-                <x-slot:text>
-                    <h3>Trusted Maritime Agency Solutions Worldwide</h3>
-                    <p>
-                        Supporting ship owners, charterers, 
-                        and operators with seamless port agency services, 
-                        husbandry support, and logistics coordination 
-                        wherever your vessel calls.
-                    </p>
-                </x-slot:text>
-            </x-widget.carousel-item> --}}
         @else
             @foreach ($carousel as $item)
                 <x-widget.carousel-item 

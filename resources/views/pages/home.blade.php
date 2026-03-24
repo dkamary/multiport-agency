@@ -3,7 +3,7 @@
 <x-logistica>
     <x-slot:meta_title>Multiport Agency FZCO</x-slot:meta_title>
 
-    <x-section.about>
+    <x-section.about :has_video="true">
         <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
         <h2 class="mb-5 text-primary text-uppercase">Global Ship Agency Solutions</h2>
         <p class="mb-5 text-wrap-balance">

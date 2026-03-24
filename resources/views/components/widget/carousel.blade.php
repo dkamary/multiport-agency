@@ -9,7 +9,7 @@
     <div class="owl-carousel header-carousel position-relative mb-5">
         @empty($carousel)
             <x-widget.carousel-item
-                :image="asset('img/multiport-agency-fzco-banner.webp')"
+                :image="asset('img/aerial-view-cargo-ship-cargo-container-harbor.webp')"
                 :background="$background"
                 primary_button_text="Read More" 
                 primary_button_link="#" 
@@ -37,10 +37,16 @@
                 secondary_button_text="Free Quote" 
                 secondary_button_link="#"
             >
-                <x-slot:title>#1 Place For Your <span class="text-primary">Logistics</span> Solution</x-slot:title>
-                <x-slot:subtitle>Transport & Logistics Solution</x-slot:subtitle>
+                <x-slot:title>Efficient. Reliable. Maritime Excellence.</x-slot:title>
+                <x-slot:subtitle>Global Maritime & Port Agency Services</x-slot:subtitle>
                 <x-slot:text>
-                    Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.
+                    <h3>Trusted Maritime Agency Solutions Worldwide</h3>
+                    <p>
+                        Supporting ship owners, charterers, 
+                        and operators with seamless port agency services, 
+                        husbandry support, and logistics coordination 
+                        wherever your vessel calls.
+                    </p>
                 </x-slot:text>
             </x-widget.carousel-item> --}}
         @else

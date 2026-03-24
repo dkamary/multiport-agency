@@ -73,10 +73,25 @@
 <body {{ $attributes->merge(['class' => 'multiport-agency-v2']) }}>
 
     @if ($with_loader)
-        <x-widget.loader width="10rem" height="10rem"><img src="{{ asset('img/multiport-logo.webp') }}" style="width: auto; height: 100%;" /></x-widget.loader>
+        <x-widget.loader width="10rem" height="10rem"><img src="{{ asset('img/multiport-agency-logo.svg') }}" style="width: auto; height: 100%;" /></x-widget.loader>
     @endif
 
     <x-widget.navbar />
+
+    <script>
+        (function () {
+            "use strict";
+            var spinner = function () {
+                setTimeout(function () {
+                    var spinnerElement = document.getElementById('spinner');
+                    if (spinnerElement) {
+                        spinnerElement.classList.remove('show');
+                    }
+                }, 1);
+            };
+            spinner();
+        })();
+    </script>
 
     @if ($with_carousel)
         <x-widget.carousel :carousel="$carousel ?? []" />
@@ -103,8 +118,8 @@
         <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
     @endif
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('lib/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
     <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>

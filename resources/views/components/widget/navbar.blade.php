@@ -6,7 +6,8 @@
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
     <a href="{{ route('home') }}" class="navbar-brand bg-primary d-flex align-items-center px-4 px-lg-5">
         <h2 class="mb-2 text-white">
-            <img src="{{ asset('img/multiport-logo.webp') }}" alt="Multiport Agency" style="width: auto; height: 3.5rem;" /> <span>Multiport Agency</span>
+            <img src="{{ asset('img/multiport-agency-logo.svg') }}" alt="Multiport Agency" style="width: auto; height: 3.5rem;" />
+            <span>Multiport Agency</span>
         </h2>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

@@ -16,22 +16,13 @@
     </div>
 </x-widget.container>
 <div class="container-fluid p-3" style="background-color: lightblue;">
-    {{-- <div class="map-controls" style="margin-bottom: 20px; display: flex; gap: 10px;">
-        <button onclick="filterService('all')">Tous les services</button>
-        <button onclick="filterService('port_agent')" style="background: #d51c21; color: white;">
-            Port Agents
-        </button>
-        <button onclick="filterService('bqs_surveyor')" style="background: #02284d; color: white;">
-            BQS Surveyors
-        </button>
-    </div> --}}
     <div id="map" class="wow fadeInUp" data-wow-delay="0.1s"></div>
 
     <div class="map-controls d-flex justify-content-center align-items-center">
         <div class="button-group">
-            <a href="#" class="btn btn-services btn-primary active" data-service="all">All Services</a>
-            <a href="#" class="btn btn-services btn-primary" data-service="port_agent">Port Agents</a>
-            <a href="#" class="btn btn-services btn-primary" data-service="bqs_surveyor">BQS Surveyors</a>
+            <a href="#" class="my-1 btn btn-services btn-primary active" data-service="all">All Services</a>
+            <a href="#" class="my-1 btn btn-services btn-primary" data-service="port_agent">Port Agents</a>
+            <a href="#" class="my-1 btn btn-services btn-primary" data-service="bqs_surveyor">BQS Surveyors</a>
         </div>
     </div>
 </div>

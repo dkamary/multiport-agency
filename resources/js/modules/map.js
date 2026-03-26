@@ -3,6 +3,26 @@
 import jsVectorMap from 'jsvectormap';
 import 'jsvectormap/dist/maps/world';
 
+/**
+ * Applique le style aux marqueurs selon leur service
+ */
+const styleMarkers = (markers) => markers.map(marker => {
+    const isBQS = marker.service === 'bqs_surveyor';
+    const color = isBQS ? '#02284d' : '#d51c21';
+
+    return {
+        ...marker,
+        style: {
+            initial: {
+                fill: color,
+                stroke: color,
+                r: 7,
+                ...(marker.icon ? { image: marker.icon } : {})
+            }
+        }
+    };
+});
+
 export function loadMap({
     selector = '#map',
     mapName = 'world',
@@ -18,8 +38,7 @@ export function loadMap({
             hover: { fill: '#02284d' }
         },
         zoomOnScroll: false,
-        markers,
-        // selectedMarkers: [0],
+        markers: styleMarkers(markers),
         markersSelectable: true,
         markersSelectableOne: true,
         markerStyle: {
@@ -29,7 +48,6 @@ export function loadMap({
                 stroke: '#d51c21'
             },
             hover: {
-                // stroke: '#d51c21' 
                 strokeWidth: 2
             },
             selected: {
@@ -41,24 +59,8 @@ export function loadMap({
             initial: {
                 fontWeight: 500,
             },
-            // You can control the hover and selected state for labels as well.
             hover: { fill: 'red' },
             selected: { fill: 'red', fontWeight: 500, fontStyle: 'italic' },
-        },
-        markerRendering: function(marker) {
-            const config = marker.config;
-            console.debug({ marker });
-
-            // Si le marqueur a une icône spécifique définie dans les données
-            if (config.icon) {
-                marker.element.style.initial.image = config.icon;
-            }
-            // Ou on change la couleur selon le type de service
-            else if (config.service === 'port_agent') {
-                marker.element.style.initial.fill = '#d51c21'; // Rouge
-            } else if (config.service === 'bqs_surveyor') {
-                marker.element.style.initial.fill = '#02284d'; // Bleu foncé
-            }
         },
         labels: {
             markers: {
@@ -78,12 +80,10 @@ export function serviceButtons({ mapInstance, allMarkers }) {
     const buttons = document.querySelectorAll('.btn-services');
     if (buttons.length == 0) {
         console.debug("No service button found");
-
         return;
     }
 
     const filterService = (type) => {
-        // On retire tous les marqueurs
         console.debug({ mapInstance });
         mapInstance.removeMarkers();
 
@@ -92,8 +92,8 @@ export function serviceButtons({ mapInstance, allMarkers }) {
             ? allMarkers
             : allMarkers.filter(m => m.service === type);
 
-        // On réajoute les marqueurs correspondants
-        mapInstance.addMarkers(filtered);
+        // On réajoute les marqueurs correspondants avec leur style
+        mapInstance.addMarkers(styleMarkers(filtered));
     }
 
     buttons.forEach(btn => {

@@ -16,9 +16,9 @@
         style="background: {{ $background }};">
         <div class="container">
             <div class="row justify-content-start">
-                <div class="col-10 col-lg-8">
+                <div class="col-12">
                     <h5 class="text-uppercase mb-3 animated slideInDown">{!! $subtitle !!}</h5>
-                    <h1 class="display-3 animated slideInDown mb-4">{!! $title !!}</h1>
+                    <h1 class="display-6 animated slideInDown mb-4">{!! $title !!}</h1>
                     <div class="fs-5 fw-medium animated slideInUp mb-0 pb-0">{!! !$slot->isEmpty() ? $slot : $text !!}</d>
                     {{-- @if(!empty($primary_button_text))
                         <a href="{{ $primary_button_link }}" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">{!! $primary_button_text !!}</a>

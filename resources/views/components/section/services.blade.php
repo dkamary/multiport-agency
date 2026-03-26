@@ -12,7 +12,7 @@
             <h6 class="text-secondary text-uppercase">{!! $title !!}</h6>
             <h2 class="mb-5 text-primary text-uppercase">{!! $subtitle !!}</h2>
         </div>
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
             <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                 <div class="service-item p-4">
                     <div class="overflow-hidden mb-4">

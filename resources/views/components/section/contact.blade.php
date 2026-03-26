@@ -5,11 +5,11 @@
     'title' => 'Contact For Any Query',
     'subtitle' => 'Get In Touch',
     'form' => null,
-    'image' => asset('img/contact-us-02.webp'),
+    'image' => asset('img/port-de-barcelona-night.webp'),
 ])
 
 <div class="container-fluid overflow-hidden {{ $additional_class }}">
-    <div class="container contact-page py-5 px-lg-0">
+    <div class="container contact-page-none py-5 px-lg-0">
         <div class="row g-5 mx-lg-0">
             <div class="col-md-6 contact-form wow fadeIn" data-wow-delay="0.1s">
                 <h6 class="text-secondary text-uppercase">{!! $subtitle !!}</h6>
@@ -49,14 +49,14 @@
                 </div>
             </div>
             <div class="col-md-6 pe-lg-0 wow fadeInRight" data-wow-delay="0.1s">
-                <div class="position-relative h-100">
+                <div class="d-flex justify-content-center overflow-hidden position-relative">
                     @if ($showMap)
                         <iframe class="position-absolute w-100 h-100" style="object-fit: cover;"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
                             frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     @else
                         @if(!empty($image))
-                            <img class="img-fluid" src="{{ $image }}" alt="{{ $title }}">
+                            <img class="img-fluid-custom" src="{{ $image }}" alt="{{ $title }}">
                         @endif
                     @endif
                 </div>

@@ -481,3 +481,11 @@ h1, h2, h3, h4, h5, h6 {
 .service-item {
     text-wrap: balance;
 }
+
+.img-fluid-custom {
+    width: auto;
+    height: clamp(360px, 100%, 600px);
+    max-height: 60vh;
+    object-fit: cover;
+    aspect-ratio: auto;
+}

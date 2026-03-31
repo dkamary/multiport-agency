@@ -9,6 +9,9 @@ import 'jsvectormap/dist/maps/world';
 const styleMarkers = (markers) => markers.map(marker => {
     const isBQS = marker.service === 'bqs_surveyor';
     const color = isBQS ? '#02284d' : '#d51c21';
+    const image = isBQS 
+        ? './img/bqs-surveyor.svg' 
+        : './img/port-agent.svg';
 
     return {
         ...marker,
@@ -16,12 +19,37 @@ const styleMarkers = (markers) => markers.map(marker => {
             initial: {
                 fill: color,
                 stroke: color,
-                r: 7,
-                ...(marker.icon ? { image: marker.icon } : {})
+                r: 10,
+                image
             }
         }
     };
 });
+
+/**
+ * Centre la carte sur les marqueurs fournis
+ */
+export function focusOnMarkers(mapInstance, markers) {
+    if (!markers || markers.length === 0) return;
+
+    let sumLat = 0.0;
+    let sumLng = 0.0;
+
+    markers.forEach(m => {
+        sumLat += m.coords[0];
+        sumLng += m.coords[1];
+    });
+
+    const avgLat = sumLat / markers.length;
+    const avgLng = sumLng / markers.length;
+
+    mapInstance.setFocus({
+        lat: avgLat,
+        lng: avgLng,
+        scale: markers.length === 1 ? 5 : 3,
+        animate: true
+    });
+}
 
 export function loadMap({
     selector = '#map',
@@ -29,6 +57,7 @@ export function loadMap({
     backgroundColor = 'transparent',
     markers = [],
 } = {}) {
+
     const options = {
         selector,
         map: mapName,
@@ -41,20 +70,6 @@ export function loadMap({
         markers: styleMarkers(markers),
         markersSelectable: true,
         markersSelectableOne: true,
-        markerStyle: {
-            initial: {
-                r: 7,
-                fill: '#d51c21',
-                stroke: '#d51c21'
-            },
-            hover: {
-                strokeWidth: 2
-            },
-            selected: {
-                strokeWidth: 3
-            },
-            selectedHover: { fillOpacity: 1 },
-        },
         markerLabelStyle: {
             initial: {
                 fontWeight: 500,
@@ -69,9 +84,17 @@ export function loadMap({
                 },
             },
         },
+        onLoaded(map) {
+            window.addEventListener('resize', () => {
+                map.updateSize()
+            });
+            // Focus initial sur tous les marqueurs
+            if (markers.length > 0) {
+                focusOnMarkers(map, markers);
+            }
+        }
     };
     const map = new jsVectorMap(options);
-    console.debug({ map });
 
     return map;
 }
@@ -93,7 +116,11 @@ export function serviceButtons({ mapInstance, allMarkers }) {
             : allMarkers.filter(m => m.service === type);
 
         // On réajoute les marqueurs correspondants avec leur style
-        mapInstance.addMarkers(styleMarkers(filtered));
+        const styledFiltered = styleMarkers(filtered);
+        mapInstance.addMarkers(styledFiltered);
+
+        // Focus sur les nouveaux marqueurs
+        focusOnMarkers(mapInstance, filtered);
     }
 
     buttons.forEach(btn => {

@@ -20,9 +20,18 @@
 
     <div class="map-controls d-flex justify-content-center align-items-center">
         <div class="button-group">
-            <a href="#" class="my-1 btn btn-services btn-primary active" data-service="all">All Services</a>
-            <a href="#" class="my-1 btn btn-services btn-primary" data-service="port_agent">Port Agents</a>
-            <a href="#" class="my-1 btn btn-services btn-primary" data-service="bqs_surveyor">BQS Surveyors</a>
+            <a href="#" class="my-1 btn btn-services btn-outline-primary active" data-service="all">
+                <img src="{{ asset('img/all-services.svg') }}" alt="All Services" style="height: 1.5rem; width: auto;"> &nbsp;
+                All Services
+            </a>
+            <a href="#" class="my-1 btn btn-services btn-outline-primary" data-service="port_agent">
+                <img src="{{ asset('img/port-agent.svg') }}" alt="All Services" style="height: 1.5rem; width: auto;"> &nbsp;
+                Port Agents
+            </a>
+            <a href="#" class="my-1 btn btn-services btn-outline-primary" data-service="bqs_surveyor">
+                <img src="{{ asset('img/bqs-surveyor.svg') }}" alt="All Services" style="height: 1.5rem; width: auto;"> &nbsp;
+                BQS Surveyors
+            </a>
         </div>
     </div>
 </div>

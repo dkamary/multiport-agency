@@ -14,7 +14,7 @@
                 <h6 class="text-secondary text-uppercase mb-3">{!! $title !!}</h6>
                 {{-- <h1 class="mb-5">We Are Trusted Logistics Company Since 1990</h1> --}}
                 <div class="d-flex mb-5 wow fadeInUp" data-wow-delay="0.3s">
-                    <i class="fa fa-bolt text-primary fa-3x flex-shrink-0"></i>
+                    <i class="fa fa-bolt text-primary fa-3x flex-shrink-0 pe-4"></i>
                     <div class="ms-4">
                         <h5>Reliability</h5>
                         <p class="mb-0">24/7 support and consistent performance.</p>

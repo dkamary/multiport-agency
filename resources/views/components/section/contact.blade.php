@@ -15,78 +15,97 @@
                 <h6 class="text-secondary text-uppercase">{!! $subtitle !!}</h6>
                 <h1 class="mb-4 text-primary">{{ $title }}</h1>
                 <div class="bg-light p-4">
-                    @if(session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
+                    <div id="contact-form-container">
+                        <div class="d-flex justify-content-center py-5" id="form-loader" style="display: none !important;">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
                         </div>
-                    @endif
+                    </div>
 
-                    @if(session('error'))
-                        <div class="alert alert-danger">
-                            {{ session('error') }}
-                        </div>
-                    @endif
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const container = document.getElementById('contact-form-container');
+                            const loader = document.getElementById('form-loader');
 
-                    <form action="{{ route('contact.submit') }}" method="POST">
-                        @csrf
-                        {{-- Honeypot --}}
-                        <div style="display:none;">
-                            <input type="text" name="website" id="website" value="">
-                        </div>
-                        
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Your Name" value="{{ old('name') }}" required>
-                                    <label for="name">Your Name</label>
-                                    @error('name')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Your Email" value="{{ old('email') }}" required>
-                                    <label for="email">Your Email</label>
-                                    @error('email')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control @error('subject') is-invalid @enderror" id="subject" name="subject" placeholder="Subject" value="{{ old('subject') }}" required>
-                                    <label for="subject">Subject</label>
-                                    @error('subject')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control @error('message') is-invalid @enderror" placeholder="Leave a message here" id="message" name="message" style="height: 100px" required>{{ old('message') }}</textarea>
-                                    <label for="message">Message</label>
-                                    @error('message')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input @error('consent') is-invalid @enderror" type="checkbox" name="consent" id="consent" required>
-                                    <label class="form-check-label text-muted small" for="consent">
-                                        I hereby acknowledge and provide my express consent to be contacted by Multiport Agency Services FZCO and agree to the processing of my personal data in accordance with professional communication standards.
-                                    </label>
-                                    @error('consent')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
+                            // 1. Chargement asynchrone après 5 secondes
+                            setTimeout(function() {
+                                loader.style.setProperty('display', 'flex', 'important');
+                                
+                                fetch('{{ route('contact.form') }}')
+                                    .then(response => response.text())
+                                    .then(html => {
+                                        container.innerHTML = html;
+                                        initContactForm();
+                                    })
+                                    .catch(error => {
+                                        console.error('Error loading form:', error);
+                                        container.innerHTML = '<div class="alert alert-danger">Error loading form. Please refresh the page.</div>';
+                                    });
+                            }, 5000);
+
+                            function initContactForm() {
+                                const form = document.getElementById('contact-form-ajax');
+                                if (!form) return;
+
+                                form.addEventListener('submit', function(e) {
+                                    e.preventDefault();
+
+                                    const submitBtn = form.querySelector('button[type="submit"]');
+                                    const spinner = submitBtn.querySelector('.spinner-border');
+                                    
+                                    // Reset errors
+                                    form.querySelectorAll('.invalid-feedback').forEach(el => el.innerText = '');
+                                    form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+
+                                    // Disable button and show spinner
+                                    submitBtn.disabled = true;
+                                    spinner.classList.remove('d-none');
+
+                                    const formData = new FormData(form);
+
+                                    // 2. Soumission par XHttpRequest (Fetch API)
+                                    fetch(form.action, {
+                                        method: 'POST',
+                                        body: formData,
+                                        headers: {
+                                            'X-Requested-With': 'XMLHttpRequest',
+                                            'Accept': 'application/json',
+                                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                                        }
+                                    })
+                                    .then(response => response.json().then(data => ({ status: response.status, body: data })))
+                                    .then(({ status, body }) => {
+                                        if (status === 200) {
+                                            // 3. Afficher un message au retour
+                                            container.innerHTML = `<div class="alert alert-success">${body.message}</div>`;
+                                        } else if (status === 422) {
+                                            if (body.errors) {
+                                                Object.keys(body.errors).forEach(key => {
+                                                    const input = form.querySelector(`[name="${key}"]`);
+                                                    const errorDiv = document.getElementById(`error-${key}`);
+                                                    if (input) input.classList.add('is-invalid');
+                                                    if (errorDiv) errorDiv.innerText = body.errors[key][0];
+                                                });
+                                            } else {
+                                                alert(body.message || 'Validation error');
+                                            }
+                                        } else {
+                                            alert(body.message || 'An error occurred. Please try again.');
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                        alert('An error occurred. Please try again.');
+                                    })
+                                    .finally(() => {
+                                        submitBtn.disabled = false;
+                                        spinner.classList.add('d-none');
+                                    });
+                                });
+                            }
+                        });
+                    </script>
                 </div>
             </div>
             <div class="col-md-6 pe-lg-0 wow fadeInRight" data-wow-delay="0.1s">

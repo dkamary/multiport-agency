@@ -26,12 +26,12 @@ $tooltip-padding: 0.5rem 0.75rem;
 @mixin btnActive {
     background-color: $secondary;
     border-color: $secondary;
-    box-shadow: none;
+    box-shadow: 0 0 0 transparent;
 }
 
 .map-controls {
     .btn {
-        &.btn-primary {
+        &.btn-outline-primary {
             &:is(.active, :hover, :focus) {
                 @include btnActive;
             }

@@ -33,22 +33,43 @@ class PageController extends Controller
     }
 
     /**
+     * Get the contact form partial.
+     */
+    public function getContactForm(): View
+    {
+        return view('pages.partials.contact-form');
+    }
+
+    /**
      * Handle contact form submission.
      */
-    public function submitContact(Request $request): RedirectResponse
+    public function submitContact(Request $request)
     {
         // 1. Honeypot check: si "website" est rempli, c'est un robot
         if ($request->filled('website')) {
+            if ($request->ajax()) {
+                return response()->json(['message' => 'Bot detected.'], 422);
+            }
             return back()->with('error', 'Bot detected.');
         }
 
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'subject' => 'required|string|max:255',
-            'message' => 'required|string',
-            'consent' => 'accepted',
-        ]);
+        try {
+            $validated = $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|email|max:255',
+                'subject' => 'required|string|max:255',
+                'message' => 'required|string',
+                'consent' => 'accepted',
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->ajax()) {
+                return response()->json([
+                    'message' => 'The given data was invalid.',
+                    'errors' => $e->errors(),
+                ], 422);
+            }
+            throw $e;
+        }
 
         // 2. Spam filter: détection de mots-clés indésirables
         $spamKeywords = [
@@ -59,6 +80,9 @@ class PageController extends Controller
 
         foreach ($spamKeywords as $keyword) {
             if (stripos($validated['message'], $keyword) !== false) {
+                if ($request->ajax()) {
+                    return response()->json(['message' => 'Your message has been identified as potential spam.'], 422);
+                }
                 return back()->with('error', 'Your message has been identified as potential spam. Please refine your message.');
             }
         }
@@ -66,6 +90,10 @@ class PageController extends Controller
         $submission = ContactSubmission::create($validated);
 
         SendContactEmailJob::dispatch($submission);
+
+        if ($request->ajax()) {
+            return response()->json(['message' => 'Your message has been sent successfully!']);
+        }
 
         return back()->with('success', 'Your message has been sent successfully!');
     }

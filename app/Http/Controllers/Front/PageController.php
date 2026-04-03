@@ -36,7 +36,7 @@ class PageController extends Controller
         // Création d'une fausse soumission pour le test
         $submission = new ContactSubmission([
             'name' => 'Diagnostic Test',
-            'email' => 'system@multiport.agency',
+            'email' => config('mail.from.address'),
             'subject' => 'SMTP Configuration Diagnostic',
             'message' => 'This is a real-time test message to verify your SMTP settings.'
         ]);

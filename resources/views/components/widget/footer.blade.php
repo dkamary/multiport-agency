@@ -4,7 +4,14 @@
         <div class="col-lg-3 col-md-6">
             <h4 class="text-light mb-4">Address</h4>
             <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Dubai, United Arab Emirates</p>
-            <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+971 xxx xxx xxx</p>
+            <p class="mb-2">
+                <i class="fa fa-phone-alt me-3"></i>
+                <a href="tel:+9710567615868">+971 056 761 5868</a>
+            </p>
+            <p class="mb-2">
+                <i class="fa fa-phone-alt me-3"></i>
+                <a href="tel:+9710562656285">+971 056 265 6285</a>
+            </p>
             <p class="mb-2"><i class="fa fa-envelope me-3"></i>ops@multiportagencyservices.com</p>
             <div class="d-flex pt-2">
                 <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>

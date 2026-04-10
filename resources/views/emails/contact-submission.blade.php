@@ -1,4 +1,4 @@
-<x-mail::message>
+<x-mail.message>
 # New Contact Submission
 
 You have received a new contact request from your website.
@@ -11,5 +11,5 @@ You have received a new contact request from your website.
 {{ $submission->message }}
 
 Thanks,<br>
-{{ config('app.name') }}
-</x-mail::message>
+{{ ucwords(str_replace('-', ' ', config('app.name'))) }}
+</x-mail.message>

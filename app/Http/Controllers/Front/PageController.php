@@ -9,9 +9,49 @@ use Illuminate\View\View;
 use App\Models\ContactSubmission;
 use App\Jobs\SendContactEmailJob;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactSubmissionMail;
 
 class PageController extends Controller
 {
+    /**
+     * Show the email test form.
+     */
+    public function testEmailForm(): View
+    {
+        return view('pages.test-email');
+    }
+
+    /**
+     * Send a real-time test email and return errors if any.
+     */
+    public function sendTestEmail(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'email' => 'required|email'
+        ]);
+
+        $recipient = $request->input('email');
+
+        // Création d'une fausse soumission pour le test
+        $submission = new ContactSubmission([
+            'name' => 'Diagnostic Test',
+            'email' => config('mail.from.address'),
+            'subject' => 'SMTP Configuration Diagnostic',
+            'message' => 'This is a real-time test message to verify your SMTP settings.'
+        ]);
+
+        try {
+            // Envoi DIRECT sans passer par les Jobs
+            Mail::to($recipient)->send(new ContactSubmissionMail($submission));
+
+            return back()->with('success', "Test email sent successfully to $recipient!");
+        } catch (\Exception $e) {
+            // On capture l'erreur précise pour le debug
+            return back()->with('error', "Mail sending failed. Error: " . $e->getMessage())
+                         ->withInput();
+        }
+    }
     public function home(): View
     {
         return view('pages.home');

@@ -14,6 +14,10 @@ Route::get('/contact-form', [PageController::class, 'getContactForm'])->name('co
 Route::post('/contact-us', [PageController::class, 'submitContact'])->name('contact.submit')->middleware('throttle:3,1');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
+// Diagnostic Email
+Route::get('/test-email', [PageController::class, 'testEmailForm'])->name('test.email');
+Route::post('/test-email', [PageController::class, 'sendTestEmail'])->name('test.email.send');
+
 Route::get('/test-mail', function () {
     Mail::to('test@example.com')->send(new ContactSubmissionMail(new ContactSubmission([
         'name' => 'John Doe',

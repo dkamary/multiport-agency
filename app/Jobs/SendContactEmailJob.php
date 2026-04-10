@@ -30,7 +30,7 @@ class SendContactEmailJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $receiver = config('mail.receiver_address', env('MAIL_RECEIVER_ADDRESS'));
+        $receiver = config('mail.receiver.address', env('MAIL_RECEIVER_ADDRESS'));
         
         if ($receiver) {
             Mail::to($receiver)->send(new ContactSubmissionMail($this->submission));

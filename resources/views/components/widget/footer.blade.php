@@ -1,16 +1,16 @@
 {{-- Footer --}}
 <div class="container py-5">
     <div class="row g-5">
-        <div class="col-lg-3 col-md-6">
+        <div class="col-lg-4 col-md-6">
             <h4 class="text-light mb-4">Address</h4>
             <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Dubai, United Arab Emirates</p>
             <p class="mb-2">
                 <i class="fa fa-phone-alt me-3"></i>
-                <a href="tel:+9710567615868">+971 056 761 5868</a>
+                <a href="tel:+9710562656285" class="text-light">+971 056 265 6285</a>
             </p>
             <p class="mb-2">
                 <i class="fa fa-phone-alt me-3"></i>
-                <a href="tel:+9710562656285">+971 056 265 6285</a>
+                <a href="tel:+9710567615868" class="text-light">+971 056 761 5868</a>
             </p>
             <p class="mb-2"><i class="fa fa-envelope me-3"></i>ops@multiportagencyservices.com</p>
             <div class="d-flex pt-2">
@@ -20,9 +20,9 @@
                 <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6">
+        {{-- <div class="col-lg-3 col-md-6">
             <h4 class="text-light mb-4">Services</h4>
-            {{-- <a class="btn btn-link" href="">Air Freight</a> --}}
+            <a class="btn btn-link" href="">Air Freight</a>
             <a class="btn btn-link" href="{{ route('services') }}#sea-freight">Sea Freight</a>
             <a class="btn btn-link" href="{{ route('services') }}#road-freight">Road Freight</a>
             <a class="btn btn-link" href="{{ route('services') }}#logistic">Logistic Solutions</a>
@@ -34,8 +34,8 @@
             <a class="btn btn-link" href="{{ route('contact') }}">Contact Us</a>
             <a class="btn btn-link" href="{{ route('services') }}">Our Services</a>
             <a class="btn btn-link" href="{{ route('faq') }}">Faqs</a>
-        </div>
-        <div class="col-lg-3 col-md-6">
+        </div> --}}
+        <div class="col-lg-4 col-md-6 ms-auto">
             <h4 class="text-light mb-4">Newsletter</h4>
             <p>Be the first to know about our latest news and offers.</p>
             <div class="position-relative mx-auto" style="max-width: 400px;">

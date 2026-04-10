@@ -5,7 +5,7 @@
     'title' => 'Why choose us?',
     'subtitle' => 'Reliable ship agency worldwide',
     'text' => 'Multiport Agency Services FZCO is a UAE Free Zone company specializing in port agency, ship husbandry, logistics coordination, and vessel operations management across multiple global ports.',
-    'phone_number' => '+971 056 761 5868',
+    'phone_number' => '+971 056 265 6285',
     'phone_label' => 'Call for any query!',
     'image' => asset('img/why-choose-us.webp'),
 ])

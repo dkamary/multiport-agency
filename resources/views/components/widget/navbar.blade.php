@@ -31,7 +31,7 @@
         </div>
         <h4 class="m-0 pe-lg-5 d-none d-lg-block">
             <i class="fa fa-headphones text-primary me-3"></i>
-            <a href="tel:+9710567615868">+971 056 761 5868</a>
+            <a href="tel:+9710562656285">+971 056 265 6285</a>
         </h4>
     </div>
 </nav>

@@ -12,7 +12,7 @@
                 <i class="fa fa-phone-alt me-3"></i>
                 <a href="tel:+9710567615868" class="text-light">+971 056 761 5868</a>
             </p>
-            <p class="mb-2"><i class="fa fa-envelope me-3"></i>ops@multiportagencyservices.com</p>
+            <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@multiportagency.com</p>
             <div class="d-flex pt-2">
                 <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>

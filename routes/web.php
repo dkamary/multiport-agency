@@ -27,3 +27,5 @@ Route::get('/test-mail', function () {
     ])));
     return "Email envoyé !";
 });
+
+Route::redirect('/mailbox', 'https://accounts.zoho.com/signin?servicename=VirtualOffice&signupurl=https://www.zoho.com/mail/signup.html&serviceurl=https://mail.zoho.com', 301);

@@ -34,7 +34,12 @@ class SendContactEmailJob implements ShouldQueue
         
         if ($receiverRaw) {
             $receivers = array_map('trim', explode(',', $receiverRaw));
-            Mail::to($receivers)->send(new ContactSubmissionMail($this->submission));
+            
+            foreach ($receivers as $receiver) {
+                if (!empty($receiver)) {
+                    Mail::to($receiver)->send(new ContactSubmissionMail($this->submission));
+                }
+            }
         }
     }
 }
